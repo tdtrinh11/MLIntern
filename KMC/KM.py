@@ -12,7 +12,7 @@ X2 = np.random.multivariate_normal(means[2], cov, N)
 
 X = np.concatenate((X0, X1, X2), axis = 0)      #ghep ma tran (0 la theo hang, 1 la theo cot)
 K = 3
-original_label = np.asarray([0]*N + [1]*N + [2]*N).T
+# original_label = np.asarray([0]*N + [1]*N + [2]*N).T
 
 def kmeans_display(X, label):
     K = np.amax(label) + 1
@@ -68,5 +68,4 @@ def kmeans(X, K):
 (centers, labels, it) = kmeans(X, K)
 print('Centers found by our algorithm:')
 print(centers[-1])
-
 kmeans_display(X, labels[-1])
