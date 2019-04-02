@@ -6,11 +6,14 @@ np.random.seed(1)
 means = [[2, 2], [8, 3], [3, 6]]
 cov = [[1, 0], [0, 1]]
 N = 500
-X0 = np.random.multivariate_normal(means[0], cov, N)
-X1 = np.random.multivariate_normal(means[1], cov, N)
-X2 = np.random.multivariate_normal(means[2], cov, N)
+X01 = np.random.multivariate_normal(means[0], cov, N//2)
+X11 = np.random.multivariate_normal(means[1], cov, N//2)
+X21 = np.random.multivariate_normal(means[2], cov, N//2)
+X02 = np.random.multivariate_normal(means[0], cov, N//2)
+X12 = np.random.multivariate_normal(means[1], cov, N//2)
+X22 = np.random.multivariate_normal(means[2], cov, N//2)
 
-X = np.concatenate((X0, X1, X2), axis = 0)      #ghep ma tran (0 la theo hang, 1 la theo cot)
+X = np.concatenate((X01, X22, X12, X02, X21, X11), axis = 0)      #ghep ma tran (0 la theo hang, 1 la theo cot)
 K = 3
 # original_label = np.asarray([0]*N + [1]*N + [2]*N).T
 
@@ -67,5 +70,5 @@ def kmeans(X, K):
 
 (centers, labels, it) = kmeans(X, K)
 print('Centers found by our algorithm:')
-print(centers[-1])
+print(centers)
 kmeans_display(X, labels[-1])
