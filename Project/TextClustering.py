@@ -3,19 +3,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 
 corpus = """
- Google and Facebook are strangling the free press to death. Democracy is the loserGoogle an 
-Your 60-second guide to security stuff Google touted today at Next '18
-A Guide to Using Android Without Selling Your Soul to Google
-Review: Lenovo’s Google Smart Display is pretty and intelligent
-Google Maps user spots mysterious object submerged off the coast of Greece - and no-one knows what it is
-Android is better than IOS
-In information retrieval, tf–idf or TFIDF, short for term frequency–inverse document frequency
-is a numerical statistic that is intended to reflect
-how important a word is to a document in a collection or corpus.
-It is often used as a weighting factor in searches of information retrieval
-text mining, and user modeling. The tf-idf value increases proportionally
-to the number of times a word appears in the document
-and is offset by the frequency of the word in the corpus
+One of the main advantages of using Google as an advertising platform is its immense reach. Google handles more than 40,000 search queries every second, a total of more than 1.2 trillion web searches every single year. As Google becomes increasingly sophisticated – in part to its growing reliance on its proprietary artificial intelligence and machine learning technology, RankBrain – this amazing search volume is likely to increase, along with the potential for advertisers to reach new customers.
+Put simply, no other search engine can offer the potential audience that Google can. This vast potential source of prospective customers alone makes Google an excellent addition to your digital marketing strategy, but when combined with Google’s increasingly accurate search results, it’s easy to see why AdWords is the most popular and widely used PPC platform in the world.
+As the world’s most popular and widely used search engine, Google is considered the de facto leader in online advertising. Fielding more than 3.5 billion search queries every single day, Google offers advertisers access to an unprecedented and unequaled potential audience of users who are actively looking for goods and services.
 """.split("\n")[1:-1]
 # print(corpus)
 # clearing and tokenizing
@@ -79,3 +69,6 @@ tf_idf_A = compute_tf_idf(tf_A, idf)
 tf_idf_B = compute_tf_idf(tf_B, idf)
 tf_idf_C = compute_tf_idf(tf_C, idf)
 
+print(len(tf_idf_A))
+# print(len(tf_idf_B))
+# print(tf_idf_C)
