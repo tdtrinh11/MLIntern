@@ -70,5 +70,5 @@ def kmeans(X, K):
 
 (centers, labels, it) = kmeans(X, K)
 print('Centers found by our algorithm:')
-print(centers)
+print(centers[-1])
 kmeans_display(X, labels[-1])
