@@ -1,3 +1,5 @@
+from builtins import print
+
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 import re
@@ -31,8 +33,14 @@ tfidf_vectorizer = TfidfVectorizer(preprocessor=preprocessing)
 tfidf = tfidf_vectorizer.fit_transform(all_text)
 # print(tfidf)
 
-kmeans = KMeans(n_clusters=2).fit(tfidf)
+kmeans = KMeans(n_clusters=3).fit(tfidf)
 lines_for_predicting = ["tf and idf is awesome!", "some androids is there"]
-X = tfidf_vectorizer.transform(lines_for_predicting)
-print(X)
-a = kmeans.predict(X)
+kmeans.predict(tfidf_vectorizer.transform(lines_for_predicting))
+for cluster in kmeans.cluster_centers_:
+    print("-------------------------------------------------------------")
+    print(cluster)
+    print("-------------------------------------------------------------")
+# lines_for_predicting = ["tf and idf is awesome!", "some androids is there"]
+# X = tfidf_vectorizer.transform(lines_for_predicting)
+# print(X)
+# a = kmeans.predict(X)
