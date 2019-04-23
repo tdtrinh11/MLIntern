@@ -1,9 +1,10 @@
 import math
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
+specialSyntax = """0 1 2 3 4 5 6 7 8 9 ! @ # $ % ^ & * ( ) - _ + = { [ } ] | \ : ; " ' < , > . ? / """.split()
 
 corpus = """
-Until recently, many advertisers viewed Google AdWords and Facebook Ads in an adversarial way. The two companies’ long-standing rivalry, often dramatized by technology media outlets, was taken as irrefutable evidence that the two platforms were in direct competition with one another, and that it was necessary for businesses of all sizes to make a difficult decision about which platform was right for their needs; a false dichotomy that remains confusing and misleading to those new to online advertising.
+Until recently, many advertisers viewed Google AdWords and Facebook Ads in an adversarial way. The two companies' long-standing rivalry, often dramatized by technology media outlets, was taken as irrefutable evidence that the two platforms were in direct competition with one another, and that it was necessary for businesses of all sizes to make a difficult decision about which platform was right for their needs; a false dichotomy that remains confusing and misleading to those new to online advertising.
 One of the main advantages of using Google as an advertising platform is its immense reach. Google handles more than 40,000 search queries every second, a total of more than 1.2 trillion web searches every single year. As Google becomes increasingly sophisticated – in part to its growing reliance on its proprietary artificial intelligence and machine learning technology, RankBrain – this amazing search volume is likely to increase, along with the potential for advertisers to reach new customers.
 Put simply, no other search engine can offer the potential audience that Google can. This vast potential source of prospective customers alone makes Google an excellent addition to your digital marketing strategy, but when combined with Google’s increasingly accurate search results, it’s easy to see why AdWords is the most popular and widely used PPC platform in the world.
 Although the two platforms are often positioned as competitors, nothing could be further from the truth in a practical sense. Many businesses are leveraging the strengths of advertising on Google and Facebook Ads in concert to achieve maximum visibility, increase leads and sales, and find new customers, adopting different strategies that align with the functionality of each platform and seeing remarkable return on their advertising spend.
@@ -24,6 +25,17 @@ Banner –ad revenue is expected to rise by 81%, which will result in decline of
 The war between the duos of Internet space has started and Larry Page took a counteroffensive defence to defend the market share by introducing Google plus. Mark zuckerberg’s recent announcement to go for IPO , also alarmed Google to retaliate in order to retain their position in Social web. Orkut which belongs to Google was once the most preferred social networking site, but Orkut rapidly faced a decline in the number of users after youngsters found FB to be more interesting as it had new features. Google also tried introducing google buzz which appeared to be a twitter clone trying to leverage the power of google. But buzz too was a failure.
 """.split("\n")[1:-1]
 # print(len(corpus))
+def removeSpecialSyntax(para):
+    charList = list(para)
+    for i in range(len(charList)):
+        if charList[i] in specialSyntax:
+            charList[i] = " "
+    p = "".join(charList)
+    return p
+
+# for p in corpus:
+#     p = removeSpecialSyntax(p)
+#     print(p)
 # clearing and tokenizing
 listWord = []
 for i in range(len(corpus)):
@@ -129,10 +141,10 @@ for tf_idf_s in tf_idf:
         temp.append(val)
     X.append(temp)
 print(X)
-# for a in X:
-#     print(a)
-# kmeans = KMeans(n_clusters=3, random_state=0).fit(X)
-# for cluster in kmeans.cluster_centers_:
-#     print("-------------------------------------------------------------")
-#     print(cluster)
-#     print("-------------------------------------------------------------")
+for a in X:
+    print(a)
+kmeans = KMeans(n_clusters=3, random_state=0).fit(X)
+for cluster in kmeans.cluster_centers_:
+    print("-------------------------------------------------------------")
+    print(cluster)
+    print("-------------------------------------------------------------")
