@@ -39,7 +39,8 @@ def removeSpecialSyntax(para):
 # clearing and tokenizing
 listWord = []
 for i in range(len(corpus)):
-    listWord.append(corpus[i].lower().split())
+    listWord.append(removeSpecialSyntax(corpus[i].lower()))
+    # print(listWord)
 
 # l_A = corpus[0].lower().split()
 # l_B = corpus[1].lower().split()
@@ -54,9 +55,6 @@ for i in range(1, len(listWord)):
     word_set = word_set.union(set(listWord[i]))
 print(word_set)
 print("-------------------------------------------------------")
-
-# loc word_set loai bo cac dau cau, cac so
-charArray = ["\.", "\'", "\,", "\""]
 
 # @@ tao tu dien
 # word_dict_A = dict.fromkeys(word_set, 0)
