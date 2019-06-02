@@ -1,3 +1,4 @@
+from builtins import list
 from collections import defaultdict
 import csv
 
@@ -10,10 +11,13 @@ with open("./sentences.csv", "r") as sentences_file:
 
 for episodes_id, text in episodes.items():
     episodes[episodes_id] = "".join(text)
-# print(episodes["1"])
+print(episodes["1"])
 
-corpus = []
-for id, episodes in sorted(episodes.items(), key=lambda t: int(t[0])):
-    corpus.append(episodes)
+episodes.pop("EpisodeId")
+# del dict["EpisodeId"]
 
-print(corpus[0])
+# corpus = []
+# for id, episodes in sorted(episodes.items(), key=lambda t: int(t[0])):
+#     corpus.append(episodes)
+#
+# print(corpus[0])
