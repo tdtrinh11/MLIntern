@@ -1,6 +1,6 @@
 from __future__ import division, print_function, unicode_literals
-import numpy as np          #thu vien dai so tuyen tinh
-import matplotlib.pyplot as plt    #thu vien ve hinh
+import numpy as np          # thu vien dai so tuyen tinh
+import matplotlib.pyplot as plt    # thu vien ve hinh
 
 # height (cm)
 X = np.array([[147, 150, 153, 158, 163, 165, 168, 170, 173, 175, 178, 180, 183]]).T
