@@ -34,7 +34,7 @@ def kmeans_display(X, label):
 def kmeans_init_centers(X, k):
     # randomly pick k rows of X as initial centers
     return X[np.random.choice(X.shape[0], k, replace=False)]
-    #thuoc tinh shape tra ve hinh dung cua ma tran va shape[0] tra ve so hang
+    #thuoc tinh shape tra ve hinh dang cua ma tran va shape[0] tra ve so hang
 
 def kmeans_assign_labels(X, centers):
     # calculate pairwise distances btw data and centers

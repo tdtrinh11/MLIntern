@@ -1,1 +1,1 @@
-- tam bo qua phan feature engineering
+- tạm bỏ qua phần feature engineering

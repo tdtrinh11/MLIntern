@@ -11,7 +11,7 @@ import time
 
 # you need to download the MNIST dataset first
 # at: http://yann.lecun.com/exdb/mnist/
-mndata = MNIST("H:/Download/MNIST") # path to your MNIST folder
+mndata = MNIST('/home/tdtrinh11/MNIST') # path to your MNIST folder
 mndata.load_testing()
 mndata.load_training()
 X_test = mndata.test_images
@@ -21,7 +21,7 @@ y_train = np.asarray(mndata.train_labels)
 
 
 start_time = time.time()
-clf = neighbors.KNeighborsClassifier(n_neighbors = 1, p = 2)
+clf = neighbors.KNeighborsClassifier(n_neighbors = 5, p = 2)
 clf.fit(X_train, y_train)
 y_pred = clf.predict(X_test)
 end_time = time.time()
