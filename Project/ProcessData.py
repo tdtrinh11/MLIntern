@@ -2,22 +2,9 @@ from builtins import list
 from collections import defaultdict
 import csv
 
-episodes = defaultdict(list)
-with open("./sentences.csv", "r") as sentences_file:
+# episodes = defaultdict(list)
+with open("/home/tdtrinh11/Documents/sentences.csv", "r") as sentences_file:
     reader = csv.reader(sentences_file, delimiter = ',')
-
+    line_count = 0
     for row in reader:
-        episodes[row[1]].append(row[4])
-
-for episodes_id, text in episodes.items():
-    episodes[episodes_id] = "".join(text)
-print(episodes["1"])
-
-episodes.pop("EpisodeId")
-# del dict["EpisodeId"]
-
-# corpus = []
-# for id, episodes in sorted(episodes.items(), key=lambda t: int(t[0])):
-#     corpus.append(episodes)
-#
-# print(corpus[0])
+        print(row)
