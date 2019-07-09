@@ -1,9 +1,0 @@
-phần IV
-- tạm bỏ qua feature engineering
-- tạm bỏ qua perceptron learning algorithms (tr. 156)
-- tạm bỏ qua logistic regression (tr. 165)
-- tạm bỏ qua softmax regression (tr. 180)
-- tạm bỏ qua Multilayer neural network và backpropagation (tr. 193)
-Phần V
-Phần VI
-Phần VII
