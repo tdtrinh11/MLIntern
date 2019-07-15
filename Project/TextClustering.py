@@ -1,7 +1,7 @@
 import math
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
-specialSyntax = """0 1 2 3 4 5 6 7 8 9 ! @ # $ % ^ & * ( ) - _ + = { [ } ] | \ : ; " ' < , > . ? / """.split()
+specialSyntax = """0 1 2 3 4 5 6 7 8 9 ! @ # $ % ^ & * ( ) - _ + = { [ } ] | \ : ; " ' < , > . ? /""".split()
 
 corpus = """
 Until recently, many advertisers viewed Google AdWords and Facebook Ads in an adversarial way. The two companies' long-standing rivalry, often dramatized by technology media outlets, was taken as irrefutable evidence that the two platforms were in direct competition with one another, and that it was necessary for businesses of all sizes to make a difficult decision about which platform was right for their needs; a false dichotomy that remains confusing and misleading to those new to online advertising.
@@ -24,7 +24,7 @@ The revenue from search advertising were slowly declining as the companies start
 Banner –ad revenue is expected to rise by 81%, which will result in decline of Google’s online advertising market share from 41% to 34 percent in the coming year. Forbes magazine has released the annual list of richest Americans, in which Mark Zuckerberg has pushed Larry Page behind. Mark Zuckerberg CEO and president of Facebook was in 35th position last year and has moved to 14th position with a net worth of $6.9 billion. Now that’s growth!! Larry Page who was in 11th position last year is in 15th position.
 The war between the duos of Internet space has started and Larry Page took a counteroffensive defence to defend the market share by introducing Google plus. Mark zuckerberg’s recent announcement to go for IPO , also alarmed Google to retaliate in order to retain their position in Social web. Orkut which belongs to Google was once the most preferred social networking site, but Orkut rapidly faced a decline in the number of users after youngsters found FB to be more interesting as it had new features. Google also tried introducing google buzz which appeared to be a twitter clone trying to leverage the power of google. But buzz too was a failure.
 """.split("\n")[1:-1]
-# print(len(corpus))
+print(corpus[0])
 def removeSpecialSyntax(para):
     charList = list(para)
     for i in range(len(charList)):
@@ -50,10 +50,12 @@ for i in range(len(corpus)):
 #@@ tao ra chuoi cac tu khong trung nhau co trong doan van
 # word_set = set(l_A).union(set(l_B)).union(set(l_C))
 # print(len(word_set))
-word_set = set(listWord[0])
+# word_set = set(listWord[0])
+word_set = set(listWord[0].split(' '))
+# print(word_set)
 for i in range(1, len(listWord)):
-    word_set = word_set.union(set(listWord[i]))
-print(word_set)
+    word_set = word_set.union(set(listWord[i].split(' ')))
+# print(word_set)
 print("-------------------------------------------------------")
 
 # @@ tao tu dien
@@ -64,7 +66,7 @@ print("-------------------------------------------------------")
 listWordDict = []
 for i in range(len(listWord)):
     listWordDict.append(dict.fromkeys(word_set, 0))
-# print(len(listWordDict))
+# print(listWordDict[0])
 
 # @@ tinh so lan xuat hien cua cac tu co trong word_set trong tung doan
 # for word in l_A:
@@ -75,10 +77,10 @@ for i in range(len(listWord)):
 #     word_dict_C[word] += 1
 
 for i in range(len(listWord)):
-    for word in listWord[i]:
-        listWordDict[i][word] += 1
-# for dict in listWordDict:
-#     print(dict)
+    for words in listWord[i]:
+        listWordDict[i][words] += 1
+# for dicts in listWordDict:
+#     print(dicts)
 
 # @@ tao tu dien luu tan xuat xuat hien cua tu trong cau
 def compute_tf(word_dict, l):
@@ -138,11 +140,11 @@ for tf_idf_s in tf_idf:
     for val in tf_idf_s.values():
         temp.append(val)
     X.append(temp)
-print(X)
-for a in X:
-    print(a)
-kmeans = KMeans(n_clusters=3, random_state=0).fit(X)
-for cluster in kmeans.cluster_centers_:
-    print("-------------------------------------------------------------")
-    print(cluster)
-    print("-------------------------------------------------------------")
+# print(X)
+# for a in X:
+    # print(a)
+# kmeans = KMeans(n_clusters=3, random_state=0).fit(X)
+# for cluster in kmeans.cluster_centers_:
+    # print("-------------------------------------------------------------")
+    # print(cluster)
+    # print("-------------------------------------------------------------")
